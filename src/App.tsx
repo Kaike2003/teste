@@ -1,12 +1,12 @@
-import React from "react"
-import Teste from "./components/Teste"
+import React from 'react'
+import RoutesApllication from './routes/RoutesApllication'
 
-export const App: React.FC<{}> = () => {
-
+function App() {
     return (
-        <div>
-            <Teste />
-        </div>
+        <React.Fragment>
+            <RoutesApllication />
+        </React.Fragment>
     )
-
 }
+
+export default App

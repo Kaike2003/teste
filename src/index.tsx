@@ -1,10 +1,21 @@
-import ReactDOM from "react-dom/client"
-import { App } from "./App"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import "./utils/styles/index.css"
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom"
+import { Toaster } from 'react-hot-toast';
+import AuthenticationProvider from './context/Authentication';
 
-
-const root = document.querySelector("#root") as HTMLElement
-
-ReactDOM.createRoot(root).render(
-    <>
-        <App />
-    </>)
+ReactDOM.render(
+    <AuthenticationProvider>
+        <BrowserRouter>
+            <React.StrictMode>
+                <App />
+                <Toaster />
+            </React.StrictMode>
+        </BrowserRouter >
+    </AuthenticationProvider>
+    ,
+    document.getElementById('root')
+);

@@ -18,11 +18,13 @@
     "lucide-react": "^0.290.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
-    "yup": "^1.3.2",
+    "yup": "^1.4.0",
     "zustand": "^4.4.7"
   },
   "scripts": {
@@ -51,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^27.0.2"
+    "electron": "^27.0.2",
+    "tailwindcss": "^3.4.3"
   }
 }

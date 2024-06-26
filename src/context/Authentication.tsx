@@ -1,8 +1,9 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useState } from 'react'
 import { TAuthentication } from '../utils/types/TAuthentication'
 import { api } from '../utils/service/api/getToken'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { useEmailStore } from '../utils/store/Store'
 
 
 export const AuthenticationContext = createContext<TAuthentication>({
@@ -14,7 +15,30 @@ export const AuthenticationContext = createContext<TAuthentication>({
 
 function AuthenticationProvider({ children }: { children: React.ReactNode }) {
 
+    const [email,setEmail] = useEmailStore((state) => [state.email,state.setEmail])
     const [user, setUser] = useState<string>("")
+
+
+    const callBackStorage = useCallback(() => {
+        const loadingStorage = () => {
+            const storageToken = localStorage.getItem("@Auth:token")
+            const storageEmail = localStorage.getItem("@Auth:email")
+
+            if (storageToken && storageEmail) {
+                setUser(`${storageToken}`)
+                setEmail(storageEmail)
+            }
+        }
+
+        loadingStorage()
+
+    }, [])
+
+
+
+    useEffect(() => {
+        callBackStorage()
+    }, [callBackStorage])
 
     const loggeduser = async (email: string, password: string) => {
 
@@ -48,6 +72,7 @@ function AuthenticationProvider({ children }: { children: React.ReactNode }) {
 
     const outuser = () => {
         localStorage.clear();
+        setUser("")
     };
     return (
         <AuthenticationContext.Provider

@@ -2,15 +2,14 @@ import React from 'react'
 import Haeder from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
 import Section from '../components/Section/Section'
+import MenuIdentetyCard from './identetyCard/MenuIdentetyCard/MenuIdentetyCard'
 
-function Layout() {
+export default function LayoutIdentetyCard() {
     return (
         <div>
             <Haeder />
-            <Section />
+            <MenuIdentetyCard />
             <Footer />
         </div>
     )
 }
-
-export default Layout

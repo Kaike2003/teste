@@ -6,6 +6,8 @@ import Login from '../layout/user/Login/Login'
 import CreateAccount from '../layout/user/CreateAccount/CreateAccount'
 import RoutesPrivate from './RoutesPrivate'
 import LayoutPage from '../pages/layout/LayoutPage'
+import LayoutIdentetyCardPage from '../pages/layouIdentetyCard/LayoutIdentetyCard'
+import LayoutFingerPrintPage from '../pages/layouFingerPrint/layouFingerPrint'
 
 function RoutesApllication() {
     return (
@@ -13,13 +15,11 @@ function RoutesApllication() {
             <Route
                 path='/'
                 Component={Login}
-                errorElement={<h1>Error</h1>}
             />
 
             <Route
                 path='/create'
                 Component={CreateAccount}
-                errorElement={<h1>Error</h1>}
             />
 
 
@@ -33,6 +33,16 @@ function RoutesApllication() {
                 <Route
                     index
                     Component={LayoutPage}
+                />
+
+                <Route
+                    path='identetycard'
+                    Component={LayoutIdentetyCardPage}
+                />
+
+                <Route
+                    path='fingerprint'
+                    Component={LayoutFingerPrintPage}
                 />
 
             </Route>

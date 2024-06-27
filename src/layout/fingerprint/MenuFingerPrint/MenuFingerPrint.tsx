@@ -21,33 +21,7 @@ function MenuFingerPrint() {
           </div>
         </div>
 
-        <div>
-          <input
-            type="text"
-            name=""
-            id=""
-            onChange={(e) => setCommand(e.target.value)}
-          />
-          <button
-            onClick={async () => {
-              try {
-                const response = await fetch("http://192.168.0.121", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "text/plain",
-                  },
-                  body: command,
-                });
-
-                console.log(response);
-              } catch (error) {
-                console.log(error);
-              }
-            }}
-          >
-            enviar
-          </button>
-        </div>
+      
 
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-3">
           <div className="rounded-md shadow ">
